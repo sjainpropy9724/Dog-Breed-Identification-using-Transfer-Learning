@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="main-content active">
+    <h1>Prediction Result</h1>
+    <p>The predicted breed is: {{ result }}</p><br>
+    <img src="{{ url_for('uploaded_file', filename=file_path.split('/')[-1]) }}" alt="Uploaded Dog Image" style="border: 3px solid green; border-radius: 4px;">
+    <form action="{{ url_for('index') }}" method="get">
+        <br><button class="button_tryagain" type="submit">Try Again</button>
+    </form>
+</body>
+</html>

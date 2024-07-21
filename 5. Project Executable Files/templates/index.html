@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Breed Identification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">DOG BREED.</div>
+        <nav>
+            <button id="homeBtn" onclick="showPage('home')" class="nav-btn active">Home</button>
+            <button id="aboutBtn" onclick="showPage('about')" class="nav-btn">About</button>
+            <button id="contactBtn" onclick="showPage('contact')" class="nav-btn">Contact</button>
+        </nav>
+        <button class="button_inspect" onclick="window.location.href='/predict'">Inspect</button>
+    </header>
+    <div id="home" class="main-content active">
+        <div>
+            <h1 style="margin-top: 200px;">Dog Breed Identification.</h1>
+            <p>Identification of Different Dog Breeds</p>
+        </div>
+    </div>
+    <div id="about" class="about-content">
+        <h2>Search by Images</h2>
+        <div class="section">
+            <img src="{{ url_for('static', filename='allBreeds.jpg') }}" alt="Dog Breeds" style="float: left; margin-right: 20px;">
+        </div>
+        <div class="steps">
+            <div class="step">
+                <img src="{{ url_for('static', filename='document.png') }}" alt="Step 1" /> 
+                <div>
+                    <h3>Data Preparation:</h3>
+                    <p>The first step is to prepare the data for the CNN. This involves cleaning and dividing the data, splitting it into training, validation, and testing sets, and performing any necessary transformations or augmentations.</p>
+                </div>
+            </div>
+            <div class="step">
+                <img src="{{ url_for('static', filename='setting-gear.png') }}" alt="Step 2">
+                <div>
+                    <h3>Model Building:</h3>
+                    <p>The second step is to build the CNN model using the VGG-16 architecture. This involves initializing the VGG-16 model and modifying it for the specific classification task, typically by adding a fully connected layer as an output layer. The model is then compiled with an appropriate loss function, optimizer, and evaluation metrics.</p>
+                </div>
+            </div>
+            <div class="step">
+                <img src="{{ url_for('static', filename='image-gallery.png') }}" alt="Step 3">
+                <div>
+                    <h3>Model Training & Evaluation:</h3>
+                    <p>The third step is to train the model on the training data using the fit() method. During training, the model is presented with batches of training data, and the weights are updated to minimize the loss function.</p>
+                </div>
+            </div>
+            <div class="step">
+                <img src="{{ url_for('static', filename='shield.png') }}" alt="Step 4">
+                <div>
+                    <h3>Model Deployment:</h3>
+                    <p>The final step after Model Training & Deployment involves deploying the model so that it can be used in real-world applications.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact" class="contact-content">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <form>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+                
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function showPage(page) {
+            document.querySelectorAll('.nav-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            document.getElementById(page + 'Btn').classList.add('active');
+            document.querySelectorAll('.main-content, .about-content, .contact-content').forEach(function(section) {
+                section.classList.remove('active');
+            });
+            document.getElementById(page).classList.add('active');
+        }
+    </script>
+</body>
+</html>

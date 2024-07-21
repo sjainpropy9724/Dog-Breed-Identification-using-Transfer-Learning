@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Dog Breed</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="main-content active">
+    <br><br><h1>Upload a Dog's Photo</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <br><br>
+        <input type="file" name="file" accept="image/*" required>
+        <br><br>
+        <button class="button_predict" type="submit">Predict</button>
+    </form>
+</body>
+</html>
